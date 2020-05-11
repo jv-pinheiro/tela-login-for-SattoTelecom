@@ -1,0 +1,46 @@
+
+body{
+	background: linear-gradient(to right, #000000, #363636);
+}
+
+.mv-auto{
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+}
+
+.form-group input{
+	height: auto;
+	border-radius: 0.5rem;
+}
+
+form .btn{
+	font-size: 80%;
+	border-radius: 5rem;
+	letter-spacing: 0.1rem;
+	font-weight: bold;
+	padding: 0.7rem;
+}
+
+.btn-jv{
+	color: red;
+	background: #000000;
+}
+
+.btn-jv2{
+	color: red;
+}
+
+.btn-jv:hover{
+	color: yellow;
+	background: #000000;
+}
+
+.btn-jv2:hover{
+	color: #ff4500;
+}
+
+.text-jv{
+	color: red;
+	font-weight: bold;
+}

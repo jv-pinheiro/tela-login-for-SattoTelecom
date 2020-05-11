@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Faça seu login</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="icon" type="image/css" href="satto.ico">
+</head>
+<body>
+	<div class="container">
+		<div class="row mv-auto">
+			<div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
+				<div class="card">
+					<div class="card-body">
+						<div class="card-title text-center">
+							<img src="ca.png" width="200">
+							</div>
+								<form method="post" id="login">
+								<div class="form-group">
+									<label for="exampleInputEmail1">Usuário</label>
+									<input type="text" name="auth_user" class="form-control"placeholder="Nome cadastrado...">
+									<small id="emailHelp" class="form-text text-muted">Necessário possuir cadastro.</small>
+								</div>
+								<div class="form-group">
+									<label for="exampleInputPassword1">Senha</label>
+									<input type="password" name="pass" class="form-control" id="exampleInputPassword1" placeholder="Senha cadastrada...">
+								</div>
+								<div class="form-group form-check">
+	    							<input type="checkbox" class="form-check-input" id="remember">
+	    							<label class="form-check-label" for="exampleCheck1">Lembrar usuário e senha</label>
+	  							</div>
+								<input type="hidden" name="rediurl" value="$PORTAL_REDIRURL$">
+								<input type="hidden" name="zone" value="$PORTAL_ZONE$">
+								<button type="submit" name="accept" value="Continue" class="btn btn-block btn-jv text-uppercase">Verificar</button>
+								<small id="emailHelp" class="form-text text-muted">Ao conectar, você será direcionado para nossa página no Instagram. Divirta-se.</small>
+								<div class="form-group mt-2 mb-2">
+									<a href="register.html" class="text-jv btn-jv2">Cadastre-se.</a>
+									<br>
+									<a href="forgot-password.html" class="text-jv btn-jv2">Esqueceu a senha? Clique aqui.</a>
+								</div>
+								<div>
+									<small id="msg" class="form-text text-right mt-4 text-jv" style="font-weight: bold;">Feito com 🤘/🥰/😎/❤️ por Jv/Satto Telecom Jr.</small>
+								</div>
+							</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		loginFill()
+		function loginFill(){
+			var email = window.localStorage.getItem('email')
+			var pass = window.localStorage.getItem('pass')
+			if (email == undefined || pass == undefined){
+				return;
+			}
+
+			document.querySelector('[name=auth_user]').value = email
+			document.querySelector('[name=pass]').value = pass
+		}
+
+
+		document.querySelector("#login").addEventListener('submit', function(form){
+			form.preventDefault()
+			var check = form.target.remember.checked
+			if (check == false){
+				window.localStorage.removeItem('email', email)
+				window.localStorage.removeItem('pass', pass)
+				//form.submit()
+				return;
+			}
+			var email = form.target.auth_user.value
+			var pass = form.target.pass.value
+			window.localStorage.setItem('email', email)
+			window.localStorage.setItem('pass', pass)
+
+			//form.submit()
+
+			//console.log(check)
+		})
+	</script>
+</body>
+</html>
